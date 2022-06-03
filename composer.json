@@ -1,0 +1,16 @@
+{
+    "name": "korkmaz/everything",
+    "description": "Bu paket ile Her şey'i tek bir yerden yönetmeyi planlıyorum...",
+    "authors": [
+        {
+            "name": "hakan korkmaz",
+            "email": "hakan.hizmet.54.gs@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app"
+        }
+    }
+}
