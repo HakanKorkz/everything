@@ -1,4 +1,4 @@
-# everything & Her Şey İçin
+# everything & Her Şey
 
 _Bu proje kapsamın da pek çok form elementini tek bir çatı altından kullanarak yönetmiyi kolaylaştırmayı hedeflemekteyim_
 
