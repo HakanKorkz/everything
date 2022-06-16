@@ -2,26 +2,28 @@
 
 namespace app\elements;
 
+
 class element
 {
-    public static string $html;
-    public static array $Att;
+
+    public static string $html="";
+    public static array $Att=[];
 
     public static function FormStart(array $Attr): string
     {
 
-        $attribute = self::Attributes(self::$Att=$Attr);
+        $attribute = self::Attributes(self::$Att = $Attr);
 
-        return self::$html="<form $attribute>";
+        return self::$html = "<form $attribute>";
 
     }
 
     private static function Attributes(array $Attributes): string
     {
-        $Attr="";
+        $Attr = "";
         foreach ($Attributes as $key => $value) {
 
-            $Attr.=$key.'="'.$value.'" ';
+            $Attr .= $key . '="' . $value . '"';
 
         }
 
@@ -31,46 +33,61 @@ class element
 
     public static function Input(array $Attr): string
     {
-        $attribute = self::Attributes(self::$Att=$Attr);
+        $attribute = self::Attributes(self::$Att = $Attr);
 
-        return self::$html="<input $attribute>";
+        return self::$html = "<input $attribute>";
 
     }
 
-    public static function Button(string $string,array $Attr): string
+    public static function Button(string $string, array $Attr): string
     {
-        $attribute = self::Attributes(self::$Att=$Attr);
+        $attribute = self::Attributes(self::$Att = $Attr);
 
-        return self::$html="<button $attribute>$string</button>";
+        return self::$html = "<button $attribute>$string</button>";
 
     }
 
     private static function options($options): string
     {
 
-        $option="";
+        $option = "";
 
-        foreach ($options as $key=>$value) {
+        foreach ($options as $value) {
 
-            $option.='<option value="'.$key.'">'.$value.'</option>';
+            $attr = self::Attributes(self::$Att=$value["attributes"]);
+
+            $option .= '<option '.$attr.'>' . $value["tittle"] . '</option>';
 
         }
         return $option;
     }
 
-    public static function Select(array $option,array $Attr): string
+    public static function Select(array $option, array $Attr): string
     {
-        $attribute = self::Attributes(self::$Att=$Attr);
+        $attribute = self::Attributes(self::$Att = $Attr);
 
-        $options=self::options($option);
+        $options = self::options($option);
 
-        return self::$html="<select $attribute>$options</select>";
+        return self::$html = "<select $attribute>$options</select>";
 
     }
 
     public static function FormEnd(): string
     {
         return "</form>";
+
+    }
+
+
+    private function deBugControl($any): void
+    {
+        echo "<pre>";
+        print_r($any);
+        echo "</pre>";
+        echo "<hr>";
+        echo "<pre>";
+        var_dump($any);
+        echo "</pre>";
 
     }
 
